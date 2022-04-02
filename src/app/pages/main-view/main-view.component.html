@@ -2,7 +2,7 @@
   <div class="navbar has-background-dark">
     <div class="navbar-brand">
       <div class="navbar-item">
-        <h1 class="app-name has-gradient-text">kanban</h1>
+        <h1 class="app-name has-gradient-text">Kanban App</h1>
       </div>
     </div>
   </div>
@@ -10,17 +10,22 @@
     <div class="board-bar">
       <p class="board-name">Board Name</p>
     </div>
+    <div class="input-container">
+      <input type="text" class="input is-primary" placeholder="Add a Task" [(ngModel)]="task" (keyup.enter)="addTask()"/>
+    </div>
     <div class="board-wrapper">
       <div class="board-columns" cdkDropListGroup>
         <div class="board-column" *ngFor="let column of board.columns">
-          <h3 class="column-title">{{column.name}}</h3>
+          <h3 class="column-title">{{ column.name }}</h3>
           <div
-            class="task-container"
+            class="tasks-container"
             cdkDropList
             [cdkDropListData]="column.tasks"
             (cdkDropListDropped)="drop($event)"
           >
-            <div class="task" *ngFor="let item of column.tasks" cdkDrag>{{ item }}</div>
+            <div class="task" *ngFor="let item of column.tasks" cdkDrag>
+              {{ item }}
+            </div>
           </div>
         </div>
       </div>

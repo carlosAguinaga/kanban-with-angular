@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MainViewComponent } from './pages/main-view/main-view.component';
 import { AboutComponent } from './pages/about/about.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DragDropModule
+    DragDropModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

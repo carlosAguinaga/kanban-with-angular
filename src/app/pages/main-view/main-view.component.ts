@@ -15,11 +15,13 @@ import { Column } from 'src/app/models/column.model';
 export class MainViewComponent implements OnInit {
   constructor() {}
 
+  task!: string;
+
   board: Board = new Board('Test Board', [
-    new Column('Idias', [
-      'Some random idia',
+    new Column('Ideas', [
+      'Some random idea',
       'This is another random idea',
-      'This is a grat idea',
+      'This is a great idea',
     ]),
     new Column('Research', [
       'lorem',
@@ -57,6 +59,13 @@ export class MainViewComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
+    }
+  }
+
+  addTask() {
+    if (this.task) {
+      this.board.columns[0].tasks.unshift(this.task);
+      this.task = '';
     }
   }
 }
